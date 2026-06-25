@@ -86,7 +86,6 @@ const register = () => {
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
 }
@@ -94,15 +93,11 @@ const register = () => {
 .register-card {
   background-color: rgb(255, 255, 255, 0.5);
   animation: fadeIn 1s;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
+  border-radius: 0.3125rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
   width: 25%;
-  min-width: 300px;
+  min-width: 18.75rem;
   height: 60%;
-  margin-top: auto;
-  margin-bottom: auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,19 +105,15 @@ const register = () => {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .register-form {
   width: 70%;
   display: flex;
   flex-direction: column;
-  gap:2%;
+  gap: 2%;
 }
 
 .register-input {
@@ -138,17 +129,16 @@ const register = () => {
 @media (max-width: 768px) {
   .register-container {
     justify-content: center;
-    padding: 0 20px;
+    padding: 0 1.25rem;
   }
   .register-card {
     width: 85%;
     min-width: unset;
     height: auto;
-    padding: 30px 0;
+    padding: 1.875rem 0;
   }
   .register-form {
     width: 80%;
   }
 }
-
 </style>

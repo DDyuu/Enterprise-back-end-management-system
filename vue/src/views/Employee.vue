@@ -270,13 +270,12 @@ loadDepartments();
 </script>
 
 <style scoped>
-/* ========== 响应式 ========== */
 @media (max-width: 768px) {
   .card .el-input {
-    width: 150px !important;
+    width: 9.375rem !important;
   }
   .el-dialog .el-form {
-    padding-right: 20px !important;
+    padding-right: 1.25rem !important;
   }
 }
 </style>

@@ -1,19 +1,19 @@
 <template>
-  <div class="card">
+  <div class="card modify-card">
     <el-form ref="formRef" :model="data.form" :rules="data.rules" >
       <div style="margin-bottom: 10%;font-size: 250%;font-weight: bold;text-align: center;">
         修改密码
       </div>
-      <el-form-item prop="oldPassword" label="原密码:" label-width="100px">
+      <el-form-item prop="oldPassword" label="原密码:" label-width="6.25rem">
         <el-input v-model="data.form.oldPassword"  placeholder="请输入原密码" prefix-icon="Lock"
                   size="large"/>
       </el-form-item>
       <div style="display: flex"></div>
-      <el-form-item prop="password" label="新密码:" label-width="100px">
+      <el-form-item prop="password" label="新密码:" label-width="6.25rem">
         <el-input v-model="data.form.password"  placeholder="请输入新密码" prefix-icon="Lock"
                   size="large" show-password/>
       </el-form-item>
-      <el-form-item prop="confirmNewPassword" label="确认新密码:" label-width="100px">
+      <el-form-item prop="confirmNewPassword" label="确认新密码:" label-width="6.25rem">
         <el-input v-model="data.form.confirmNewPassword"  placeholder="请确认新密码" prefix-icon="Lock"
                   size="large" @keydown.enter.native="modify" show-password/>
       </el-form-item>
@@ -45,15 +45,9 @@ const data = reactive({
   user: JSON.parse(localStorage.getItem("user")),
   form: {},
   rules: {
-    oldPassword: [
-      {required: true, message: "请输入原密码", trigger: "blur"},
-    ],
-    password: [
-      {required: true, message: "请输入新密码", trigger: "blur"},
-    ],
-    confirmNewPassword: [
-      { validator: validatePass, trigger: "blur" }
-    ]
+    oldPassword: [{required: true, message: "请输入原密码", trigger: "blur"}],
+    password: [{required: true, message: "请输入新密码", trigger: "blur"}],
+    confirmNewPassword: [{ validator: validatePass, trigger: "blur" }]
   }
 })
 
@@ -66,9 +60,7 @@ const modify = () => {
         if (res.code === "200") {
           ElMessage.success("修改成功")
           localStorage.removeItem("user")
-          setTimeout(() => {
-            location.href = "/login"
-          },500)
+          setTimeout(() => { location.href = "/login" }, 500)
         }else{
           ElMessage.error(res.msg);
         }
@@ -79,22 +71,20 @@ const modify = () => {
 </script>
 
 <style scoped>
-
-.card {
-  width: 50%
+.modify-card {
+  width: 50%;
 }
 
 .button{
-  padding: 20px 30px;
+  padding: 1.25rem 1.875rem;
 }
 
-/* ========== 响应式 ========== */
 @media (max-width: 768px) {
-  .card {
+  .modify-card {
     width: 100%;
   }
   .button {
-    padding: 15px 20px;
+    padding: 0.9375rem 1.25rem;
   }
 }
 </style>

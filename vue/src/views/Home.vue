@@ -1,17 +1,13 @@
 <template>
   <div class="home-container">
-    <!-- 背景图 -->
     <div class="background"></div>
 
-    <!-- 内容区 -->
     <div class="content">
-      <!-- 时钟 -->
       <div class="clock-card">
         <div class="clock-time">{{ time }}</div>
         <div class="clock-date">{{ date }}</div>
       </div>
 
-      <!-- 文章列表 -->
       <div class="article-section">
         <div class="section-title">最新文章</div>
         <div class="article-grid">
@@ -21,7 +17,7 @@
             <div class="article-date">{{ formatDate(item.date) }}</div>
           </div>
         </div>
-        <div style="margin-top: 20px; display: flex; justify-content: center;">
+        <div style="margin-top: 1.25rem; display: flex; justify-content: center;">
           <el-pagination
               v-model:current-page="data.pageNum"
               v-model:page-size="data.pageSize"
@@ -36,13 +32,12 @@
       </div>
     </div>
 
-    <!-- 查看文章弹窗 -->
     <el-dialog title="文章内容" v-model="data.viewVisible" width="50%" :close-on-click-modal="false" destroy-on-close>
-      <div style="padding: 10px">
-        <h2 style="margin-bottom: 10px">{{ data.currentArticle.title }}</h2>
-        <div style="color: #999; margin-bottom: 15px; font-size: 14px">
+      <div style="padding: 0.625rem">
+        <h2 style="margin-bottom: 0.625rem">{{ data.currentArticle.title }}</h2>
+        <div style="color: #999; margin-bottom: 0.9375rem; font-size: 0.875rem">
           <span>发布于: {{ data.currentArticle.date }}</span>
-          <span v-if="data.currentArticle.description" style="margin-left: 20px; color: #666">{{ data.currentArticle.description }}</span>
+          <span v-if="data.currentArticle.description" style="margin-left: 1.25rem; color: #666">{{ data.currentArticle.description }}</span>
         </div>
         <div class="editor-content-view" v-html="data.currentArticle.content"></div>
       </div>
@@ -122,11 +117,11 @@ onUnmounted(() => {
 <style scoped>
 .home-container {
   position: relative;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .background {
@@ -146,124 +141,124 @@ onUnmounted(() => {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 900px;
+  max-width: 56.25rem;
 }
 
 .clock-card {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 30px 40px;
+  border-radius: 1rem;
+  padding: 1.875rem 2.5rem;
   text-align: center;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.875rem;
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
 }
 
 .clock-time {
-  font-size: 64px;
+  font-size: 4rem;
   font-weight: bold;
   color: #333;
-  letter-spacing: 4px;
+  letter-spacing: 0.25rem;
   font-family: 'Courier New', monospace;
 }
 
 .clock-date {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #666;
-  margin-top: 8px;
+  margin-top: 0.5rem;
 }
 
 .article-section {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 25px 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  padding: 1.5625rem 1.875rem;
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
 }
 
 .section-title {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #409eff;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 0.125rem solid #409eff;
 }
 
 .article-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 0.9375rem;
 }
 
 .article-card {
   background: white;
-  border-radius: 10px;
-  padding: 16px;
+  border-radius: 0.625rem;
+  padding: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
   border: 1px solid #eee;
 }
 
 .article-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(64, 158, 255, 0.15);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.375rem 1.25rem rgba(64, 158, 255, 0.15);
   border-color: #409eff;
 }
 
 .article-title {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .article-desc {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #888;
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .article-date {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #bbb;
 }
 
 /* ========== 响应式 ========== */
 @media (max-width: 768px) {
   .home-container {
-    padding: 10px;
+    padding: 0.625rem;
   }
   .clock-card {
-    padding: 20px;
+    padding: 1.25rem;
   }
   .clock-time {
-    font-size: 42px;
+    font-size: 2.625rem;
   }
   .clock-date {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
   .article-section {
-    padding: 15px;
+    padding: 0.9375rem;
   }
   .article-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 0.75rem;
   }
 }
 
 @media (max-width: 576px) {
   .clock-time {
-    font-size: 32px;
+    font-size: 2rem;
   }
   .clock-date {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 }
 </style>

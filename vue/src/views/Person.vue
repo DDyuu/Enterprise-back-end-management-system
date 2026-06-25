@@ -1,7 +1,7 @@
 <template>
-  <div class="card">
-    <el-form ref="formRef" :model="data.form" :rules="data.rules" style="padding-right: 50px; padding-top:20px">
-      <div style="margin-bottom:20px; text-align: center;">
+  <div class="card person-card">
+    <el-form ref="formRef" :model="data.form" :rules="data.rules" style="padding-right: 3.125rem; padding-top: 1.25rem">
+      <div style="margin-bottom: 1.25rem; text-align: center;">
         <el-upload
             class="avatar-uploader"
             action="http://localhost:8080/files/upload"
@@ -12,26 +12,26 @@
           <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
         </el-upload>
       </div>
-      <el-form-item label="账号" label-width="80px" prop="account">
+      <el-form-item label="账号" label-width="5rem" prop="account">
         <el-input v-model="data.form.account" autocomplete="off" disabled>请输入账号</el-input>
       </el-form-item>
-      <el-form-item label="姓名" label-width="80px" prop="name">
+      <el-form-item label="姓名" label-width="5rem" prop="name">
         <el-input v-model="data.form.name" autocomplete="off">请输入姓名</el-input>
       </el-form-item>
       <div v-if="data.form.role !== 'admin'">
-      <el-form-item label="性别" label-width="80px">
+      <el-form-item label="性别" label-width="5rem">
         <el-radio-group v-model="data.form.sex">
           <el-radio value="male">男</el-radio>
           <el-radio value="female">女</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="工号" label-width="80px" prop="no">
+      <el-form-item label="工号" label-width="5rem" prop="no">
         <el-input v-model="data.form.no" autocomplete="off"></el-input>
       </el-form-item>
-      <el-form-item label="年龄" label-width="80px">
+      <el-form-item label="年龄" label-width="5rem">
         <el-input-number v-model="data.form.age" autocomplete="off" min="18"></el-input-number>
       </el-form-item>
-      <el-form-item label="职位" label-width="80px">
+      <el-form-item label="职位" label-width="5rem">
         <el-input v-model="data.form.description" autocomplete="off"></el-input>
       </el-form-item>
       </div>
@@ -53,20 +53,13 @@ const data = reactive({
   user: JSON.parse(localStorage.getItem("user")),
   form: {},
   rules: {
-    account: [
-      {required: true, message: "请输入账号", trigger: "blur"}
-    ],
-    name: [
-      {required: true, message: "请输入姓名", trigger: "blur"}
-    ],
-    no: [
-      {required: true, message: "请输入工号", trigger: "blur"}
-    ]
+    account: [{required: true, message: "请输入账号", trigger: "blur"}],
+    name: [{required: true, message: "请输入姓名", trigger: "blur"}],
+    no: [{required: true, message: "请输入工号", trigger: "blur"}]
   }
 })
 
 const handleAvatarSuccess = (res) => {
-  console.log(res.data);
   data.form.avatar = res.data
 }
 
@@ -102,29 +95,31 @@ const updateUser = () => {
 </script>
 
 <style scoped>
-.card {
+.person-card {
   width: 50%;
-  padding: 20px 40px;
+  padding: 1.25rem 2.5rem;
 }
 
 .button{
-  padding: 20px 30px;
+  padding: 1.25rem 1.875rem;
 }
 
 .avatar-uploader .avatar {
-  width: 120px;
-  height: 120px;
+  width: 7.5rem;
+  height: 7.5rem;
   display: block;
 }
 
-/* ========== 响应式 ========== */
 @media (max-width: 768px) {
-  .card {
+  .person-card {
     width: 100%;
-    padding: 15px;
+    padding: 0.9375rem;
   }
   .button {
-    padding: 15px 20px;
+    padding: 0.9375rem 1.25rem;
+  }
+  .person-card .el-form {
+    padding-right: 1.25rem !important;
   }
 }
 </style>
@@ -146,8 +141,8 @@ const updateUser = () => {
 .el-icon.avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
-  width: 120px;
-  height: 120px;
+  width: 7.5rem;
+  height: 7.5rem;
   text-align: center;
 }
 </style>

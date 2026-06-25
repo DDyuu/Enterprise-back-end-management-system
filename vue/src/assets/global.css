@@ -1,19 +1,24 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    color: #333;
-}
-.card {
-    background: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.12);
+/* ========== rem 基准 ========== */
+html {
+    font-size: 16px;
 }
 
-/* ========== 响应式基础 ========== */
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+    color: #333;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+.card {
+    background: white;
+    padding: 0.625rem;
+    border-radius: 0.3125rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.12);
 }
 
 /* ========== el-dialog 响应式 ========== */
@@ -34,49 +39,47 @@ body{
         justify-content: center;
     }
     .el-pagination .el-pagination__sizes {
-        margin-bottom: 4px;
-    }
-}
-
-/* ========== el-menu 在移动端折叠 ========== */
-@media (max-width: 768px) {
-    .el-menu--vertical {
-        min-height: auto !important;
+        margin-bottom: 0.25rem;
     }
 }
 
 /* ========== CRUD 页面通用响应式 ========== */
 @media (max-width: 768px) {
     .card {
-        padding: 8px !important;
+        padding: 0.5rem !important;
     }
     .card .el-button {
-        margin-bottom: 4px;
+        margin-bottom: 0.25rem;
     }
     .el-table {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
     .el-table .el-button {
-        padding: 6px 8px;
+        padding: 0.375rem 0.5rem;
     }
     .el-upload {
-        margin-bottom: 4px;
+        margin-bottom: 0.25rem;
     }
     .el-dialog .el-dialog__body {
-        padding: 15px;
+        padding: 0.9375rem;
     }
     .editor-content-view {
-        padding: 10px !important;
+        padding: 0.625rem !important;
+    }
+    .el-form-item {
+        margin-bottom: 0.5rem !important;
+    }
+    .el-dialog .el-form {
+        padding-right: 1.25rem !important;
     }
 }
 
 /* ========== 极小屏 ========== */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
     .card .el-input {
-        width: 120px !important;
+        width: 7.5rem !important;
     }
     .el-pagination .el-pagination__total {
         display: none;
     }
 }
-

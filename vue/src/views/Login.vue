@@ -81,16 +81,14 @@ const login = () => {
 .login-card {
   background-color: rgb(255, 255, 255, 0.5);
   animation: fadeIn 1s;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
+  border-radius: 0.3125rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
   width: 25%;
-  min-width: 300px;
+  min-width: 18.75rem;
   height: 60%;
   margin-top: auto;
   margin-bottom: auto;
   margin-right: 10%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,19 +96,15 @@ const login = () => {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .login-form {
   width: 70%;
   display: flex;
   flex-direction: column;
-  gap:2%;
+  gap: 2%;
 }
 
 .login-input {
@@ -132,11 +126,10 @@ const login = () => {
     min-width: unset;
     height: auto;
     margin-right: 0;
-    padding: 30px 0;
+    padding: 1.875rem 0;
   }
   .login-form {
     width: 80%;
   }
 }
-
 </style>
